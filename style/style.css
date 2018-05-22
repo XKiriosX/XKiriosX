@@ -1,0 +1,228 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  margin: 0;
+  padding: 0;
+  min-width: 365px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+}
+
+.video-holder {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.search {
+  width: 100%;
+  position: relative
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 60px;
+  height: 56px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 60%;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: auto;
+  grid-row-gap: 50px;
+  margin-top: 250px;
+  margin-bottom: 50px;
+}
+
+.video-holder {
+  display: grid;
+  width: 320px;
+  justify-self: center;
+  background-color: #45accc;
+  border: 3px solid #2e6d83;
+  border-radius: 4%;
+}
+
+.video-name {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.video-author {
+  text-align: center;
+}
+
+/*MODAL BOX*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.video-link {
+  margin: auto;
+  display: block;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+.caption {
+  display: grid;
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+  padding: 10px 0;
+}
+
+.caption p::selection {
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Add Animation - Zoom in the Modal */
+.video-link, .caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 655px) {
+  .videos {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .videos {
+    grid-template-columns: auto auto auto;
+  }
+  .caption {
+    margin-left: 25%;
+    margin-top: 50px;
+    display: grid;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    width: 50%;
+    padding: 10px 0;
+  }
+}
+
+.video-description {
+  background-color: #fff;
+}
+
+.video-link {
+  max-width: 100%;
+}
+
+.video-nickname {
+  background-color: #fff;
+}
+
+.video-thumbnail:hover {
+  cursor: pointer;
+  transition: .5s ease-in-out;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+footer {
+  justify-content: center;
+}
+
+.loader {
+  border-radius: 50%;
+  border: 16px solid #4797FF;
+  border-bottom-color: #FFFA04;
+  border-left-color: #FFFA04;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
